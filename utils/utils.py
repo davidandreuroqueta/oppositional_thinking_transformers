@@ -3,6 +3,7 @@ import shutil
 import random
 import numpy as np
 import torch
+from itertools import product
 
 def set_seed(seed):
     """
@@ -29,3 +30,10 @@ def remove_previous_model(folder):
     dirs = [x for x in os.listdir(folder) if os.path.isdir(folder+os.sep+x)]
     for x in dirs:
         shutil.rmtree(folder+os.sep+x, ignore_errors=False, onerror=None)
+        
+        
+def product_dict(**kwargs):
+    keys = kwargs.keys()
+    vals = kwargs.values()
+    for instance in product(*vals):
+        yield dict(zip(keys, instance))

@@ -1,9 +1,9 @@
 #Import the training data for English and Spanish and
 import pandas as pd
-from datareader import en_train_df, es_train_df
+from utils.datareader import en_train_df, es_train_df
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, get_scheduler
 from sklearn.model_selection import train_test_split
-from fine_tuning import training, validate
+from utils.fine_tuning import training, validate
 SEED=1234
 from utils import set_seed
 
